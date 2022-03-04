@@ -1,7 +1,7 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 697:
+/***/ 351:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -28,7 +28,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.issue = exports.issueCommand = void 0;
 const os = __importStar(__nccwpck_require__(37));
-const utils_1 = __nccwpck_require__(193);
+const utils_1 = __nccwpck_require__(278);
 /**
  * Commands
  *
@@ -100,7 +100,7 @@ function escapeProperty(s) {
 
 /***/ }),
 
-/***/ 737:
+/***/ 186:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -135,12 +135,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getIDToken = exports.getState = exports.saveState = exports.group = exports.endGroup = exports.startGroup = exports.info = exports.notice = exports.warning = exports.error = exports.debug = exports.isDebug = exports.setFailed = exports.setCommandEcho = exports.setOutput = exports.getBooleanInput = exports.getMultilineInput = exports.getInput = exports.addPath = exports.setSecret = exports.exportVariable = exports.ExitCode = void 0;
-const command_1 = __nccwpck_require__(697);
-const file_command_1 = __nccwpck_require__(702);
-const utils_1 = __nccwpck_require__(193);
+const command_1 = __nccwpck_require__(351);
+const file_command_1 = __nccwpck_require__(717);
+const utils_1 = __nccwpck_require__(278);
 const os = __importStar(__nccwpck_require__(37));
 const path = __importStar(__nccwpck_require__(17));
-const oidc_utils_1 = __nccwpck_require__(355);
+const oidc_utils_1 = __nccwpck_require__(41);
 /**
  * The code to exit an action
  */
@@ -419,7 +419,7 @@ exports.getIDToken = getIDToken;
 
 /***/ }),
 
-/***/ 702:
+/***/ 717:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -450,7 +450,7 @@ exports.issueCommand = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const fs = __importStar(__nccwpck_require__(147));
 const os = __importStar(__nccwpck_require__(37));
-const utils_1 = __nccwpck_require__(193);
+const utils_1 = __nccwpck_require__(278);
 function issueCommand(command, message) {
     const filePath = process.env[`GITHUB_${command}`];
     if (!filePath) {
@@ -468,7 +468,7 @@ exports.issueCommand = issueCommand;
 
 /***/ }),
 
-/***/ 355:
+/***/ 41:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
 "use strict";
@@ -484,9 +484,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.OidcClient = void 0;
-const http_client_1 = __nccwpck_require__(223);
-const auth_1 = __nccwpck_require__(379);
-const core_1 = __nccwpck_require__(737);
+const http_client_1 = __nccwpck_require__(925);
+const auth_1 = __nccwpck_require__(702);
+const core_1 = __nccwpck_require__(186);
 class OidcClient {
     static createHttpClient(allowRetry = true, maxRetry = 10) {
         const requestOptions = {
@@ -552,7 +552,7 @@ exports.OidcClient = OidcClient;
 
 /***/ }),
 
-/***/ 193:
+/***/ 278:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -599,7 +599,7 @@ exports.toCommandProperties = toCommandProperties;
 
 /***/ }),
 
-/***/ 379:
+/***/ 702:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -665,7 +665,7 @@ exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHand
 
 /***/ }),
 
-/***/ 223:
+/***/ 925:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -673,7 +673,7 @@ exports.PersonalAccessTokenCredentialHandler = PersonalAccessTokenCredentialHand
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const http = __nccwpck_require__(685);
 const https = __nccwpck_require__(687);
-const pm = __nccwpck_require__(60);
+const pm = __nccwpck_require__(443);
 let tunnel;
 var HttpCodes;
 (function (HttpCodes) {
@@ -1092,7 +1092,7 @@ class HttpClient {
         if (useProxy) {
             // If using proxy, need tunnel
             if (!tunnel) {
-                tunnel = __nccwpck_require__(624);
+                tunnel = __nccwpck_require__(294);
             }
             const agentOptions = {
                 maxSockets: maxSockets,
@@ -1210,7 +1210,7 @@ exports.HttpClient = HttpClient;
 
 /***/ }),
 
-/***/ 60:
+/***/ 443:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -1275,7 +1275,7 @@ exports.checkBypass = checkBypass;
 
 /***/ }),
 
-/***/ 779:
+/***/ 467:
 /***/ ((module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -1288,7 +1288,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var Stream = _interopDefault(__nccwpck_require__(781));
 var http = _interopDefault(__nccwpck_require__(685));
 var Url = _interopDefault(__nccwpck_require__(310));
-var whatwgUrl = _interopDefault(__nccwpck_require__(542));
+var whatwgUrl = _interopDefault(__nccwpck_require__(665));
 var https = _interopDefault(__nccwpck_require__(687));
 var zlib = _interopDefault(__nccwpck_require__(796));
 
@@ -1441,7 +1441,7 @@ FetchError.prototype.name = 'FetchError';
 
 let convert;
 try {
-	convert = (__nccwpck_require__(541).convert);
+	convert = (__nccwpck_require__(877).convert);
 } catch (e) {}
 
 const INTERNALS = Symbol('Body internals');
@@ -2980,14 +2980,14 @@ exports.FetchError = FetchError;
 
 /***/ }),
 
-/***/ 590:
+/***/ 256:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
 var punycode = __nccwpck_require__(477);
-var mappingTable = __nccwpck_require__(229);
+var mappingTable = __nccwpck_require__(20);
 
 var PROCESSING_OPTIONS = {
   TRANSITIONAL: 0,
@@ -3181,15 +3181,15 @@ module.exports.PROCESSING_OPTIONS = PROCESSING_OPTIONS;
 
 /***/ }),
 
-/***/ 624:
+/***/ 294:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-module.exports = __nccwpck_require__(203);
+module.exports = __nccwpck_require__(219);
 
 
 /***/ }),
 
-/***/ 203:
+/***/ 219:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -3461,7 +3461,7 @@ exports.debug = debug; // for test
 
 /***/ }),
 
-/***/ 127:
+/***/ 886:
 /***/ ((module) => {
 
 "use strict";
@@ -3658,12 +3658,12 @@ conversions["RegExp"] = function (V, opts) {
 
 /***/ }),
 
-/***/ 903:
+/***/ 537:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
-const usm = __nccwpck_require__(367);
+const usm = __nccwpck_require__(158);
 
 exports.implementation = class URLImpl {
   constructor(constructorArgs) {
@@ -3866,15 +3866,15 @@ exports.implementation = class URLImpl {
 
 /***/ }),
 
-/***/ 780:
+/***/ 394:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-const conversions = __nccwpck_require__(127);
-const utils = __nccwpck_require__(323);
-const Impl = __nccwpck_require__(903);
+const conversions = __nccwpck_require__(886);
+const utils = __nccwpck_require__(185);
+const Impl = __nccwpck_require__(537);
 
 const impl = utils.implSymbol;
 
@@ -4070,32 +4070,32 @@ module.exports = {
 
 /***/ }),
 
-/***/ 542:
+/***/ 665:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
 
 
-exports.URL = __nccwpck_require__(780)["interface"];
-exports.serializeURL = __nccwpck_require__(367).serializeURL;
-exports.serializeURLOrigin = __nccwpck_require__(367).serializeURLOrigin;
-exports.basicURLParse = __nccwpck_require__(367).basicURLParse;
-exports.setTheUsername = __nccwpck_require__(367).setTheUsername;
-exports.setThePassword = __nccwpck_require__(367).setThePassword;
-exports.serializeHost = __nccwpck_require__(367).serializeHost;
-exports.serializeInteger = __nccwpck_require__(367).serializeInteger;
-exports.parseURL = __nccwpck_require__(367).parseURL;
+exports.URL = __nccwpck_require__(394)["interface"];
+exports.serializeURL = __nccwpck_require__(158).serializeURL;
+exports.serializeURLOrigin = __nccwpck_require__(158).serializeURLOrigin;
+exports.basicURLParse = __nccwpck_require__(158).basicURLParse;
+exports.setTheUsername = __nccwpck_require__(158).setTheUsername;
+exports.setThePassword = __nccwpck_require__(158).setThePassword;
+exports.serializeHost = __nccwpck_require__(158).serializeHost;
+exports.serializeInteger = __nccwpck_require__(158).serializeInteger;
+exports.parseURL = __nccwpck_require__(158).parseURL;
 
 
 /***/ }),
 
-/***/ 367:
+/***/ 158:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 
 const punycode = __nccwpck_require__(477);
-const tr46 = __nccwpck_require__(590);
+const tr46 = __nccwpck_require__(256);
 
 const specialSchemes = {
   ftp: 21,
@@ -5394,7 +5394,7 @@ module.exports.parseURL = function (input, options) {
 
 /***/ }),
 
-/***/ 323:
+/***/ 185:
 /***/ ((module) => {
 
 "use strict";
@@ -5422,7 +5422,7 @@ module.exports.implForWrapper = function (wrapper) {
 
 /***/ }),
 
-/***/ 541:
+/***/ 877:
 /***/ ((module) => {
 
 module.exports = eval("require")("encoding");
@@ -5542,7 +5542,7 @@ module.exports = require("zlib");
 
 /***/ }),
 
-/***/ 229:
+/***/ 20:
 /***/ ((module) => {
 
 "use strict";
@@ -5591,75 +5591,99 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
-const core = __nccwpck_require__(737);
+const core = __nccwpck_require__(186);
 const fs = __nccwpck_require__(147);
 const path = __nccwpck_require__(17);
-const fetch = __nccwpck_require__(779);
+const fetch = __nccwpck_require__(467);
 
 function getFilenameFromUrl(url) {
-  const u = new URL(url);
-  const pathname = u.pathname;
-  const pathClips = pathname.split("/");
-  const filenameWithArgs = pathClips[pathClips.length - 1];
-  return filenameWithArgs.replace(/\?.*/, "");
+    const u = new URL(url);
+    const pathname = u.pathname;
+    const pathClips = pathname.split("/");
+    const filenameWithArgs = pathClips[pathClips.length - 1];
+    return filenameWithArgs.replace(/\?.*/, "");
+}
+
+const getLinksFromString = (text) => text.match(/https[^ '")]*/gi);
+
+const getLinks = (data) => {
+    switch (typeof data) {
+        case 'string': {
+            return getLinksFromString(data);
+        }
+        case 'object':
+            const links = [];
+            for (text of data) {
+                links.push(...getLinksFromString(text));
+            }
+            return links;
+    }
+}
+
+function parseName(urls) {
+    let filename = []
+    if (!urls.includes("[")) filename = [urls].flat();
+    else filename = JSON.parse(urls)
+    return filename.filter((url) => url)
+}
+
+async function download(url, filename, target) {
+    const body = await fetch(url)
+        .then((x) => x.buffer())
+        .catch((err) => {
+            core.setFailed(`Fail to download file ${url}: ${err}`);
+            return undefined;
+        });
+    if (body === undefined) return;
+    let finalFilename = (filename) ? String(filename) : getFilenameFromUrl(url);
+    if (finalFilename === "") {
+        core.setFailed("Filename not found. Please indicate it in the URL or set `filename` in the workflow.");
+        return;
+    }
+    fs.writeFileSync(path.join(target, finalFilename), body);
+    core.setOutput("filename", finalFilename);
+    return finalFilename
 }
 
 async function main() {
-  try {
-    const text = core.getInput("url");
-    const target = core.getInput("target");
-    const filename = core.getInput("filename");
-    let autoMatch = core.getInput("auto-match");
-    if (["false", "0"].includes(autoMatch.toLowerCase().trim())) {
-      autoMatch = false;
-    } else {
-      autoMatch = true;
-    }
-    const url = (() => {
-      if (!autoMatch) return text;
-      if (autoMatch) {
-        const match = text.match(/\((.*)\)/);
-        if (match === null) return "";
-        return match[1] || "";
-      }
-    })();
-    if (url.trim() === "") {
-      core.setFailed("Failed to find a URL.");
-      return;
-    }
-    console.log(`URL found: ${url}`);
     try {
-      fs.mkdirSync(target, {
-        recursive: true,
-      });
-    } catch (e) {
-      core.setFailed(`Failed to create target directory ${target}: ${e}`);
-      return;
+        const text = core.getInput("url");
+        const target = core.getInput("target");
+        let filename = core.getInput("filename");
+        const urls = getLinks(text);
+
+        if (urls.length === 0) {
+            core.setFailed("Failed to find a URL.");
+            return;
+        }
+
+        filename = parseName(filename);
+        if (typeof filename === "object" && filename.length > 0 && urls.length !== filename.length) {
+            core.setFailed("The number of urls does not match the number of filenames.");
+            return;
+        }
+
+        urls.map((url, key) => console.log(`${key}) URLs found: ${url}`))
+        try {
+            fs.mkdirSync(target, {
+                recursive: true,
+            });
+        } catch (e) {
+            core.setFailed(`Failed to create target directory ${target}: ${e}`);
+            return;
+        }
+
+        Promise.all(urls.map((url, key) => download(url, filename[key], target)))
+            .then((file) => {
+                console.log('Saved files:', file)
+            })
+            .catch((err) => {
+                core.setFailed(err.message)
+            })
+        console.log("Download completed.");
+    } catch (error) {
+        core.setFailed(error.message);
     }
-    const body = await fetch(url)
-      .then((x) => x.buffer())
-      .catch((err) => {
-        core.setFailed(`Fail to download file ${url}: ${err}`);
-        return undefined;
-      });
-    if (body === undefined) return;
-    console.log("Download completed.");
-    let finalFilename = "";
-    if (filename) {
-      finalFilename = String(filename);
-    } else {
-      finalFilename = getFilenameFromUrl(url);
-    }
-    if (finalFilename === "") {
-      core.setFailed("Filename not found. Please indicate it in the URL or set `filename` in the workflow.");
-      return;
-    }
-    fs.writeFileSync(path.join(target, finalFilename), body);
-    console.log("File saved.");
-    core.setOutput("filename", finalFilename);
-  } catch (error) {
-    core.setFailed(error.message);
-  }
 }
 
 main();
