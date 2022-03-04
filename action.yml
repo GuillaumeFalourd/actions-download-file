@@ -9,10 +9,6 @@ inputs:
     description: "Target file destination"
     required: true
     default: "."
-  auto-match:
-    description: 'Match the first URL from "url"'
-    required: false
-    default: "false"
 outputs:
   filename:
     description: "Written file name"
