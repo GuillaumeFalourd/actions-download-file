@@ -70,7 +70,7 @@ async function main() {
             return;
         }
 
-        urls.map((url, key) => console.log(`${key}) URLs found: ${url}`));
+        urls.map((url, key) => console.log(`${key}) URL found: ${url}`));
         try {
             fs.mkdirSync(target, { recursive: true });
         } catch (e) {
