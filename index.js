@@ -85,7 +85,7 @@ async function main() {
             .catch((err) => {
                 core.setFailed(err.message);
             });
-        console.log("Download completed.");
+        console.log("Download completed.")
     } catch (error) {
         core.setFailed(error.message);
     }
