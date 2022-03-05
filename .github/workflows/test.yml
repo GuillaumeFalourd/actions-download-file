@@ -19,5 +19,10 @@ jobs:
           target: public/
           auto-match: true
 
+      - name: Console
+        run: echo "$GITHUB_CONTEXT"
+        env:
+         GITHUB_CONTEXT: ${{ toJson(github) }}
+
       - name: Display the file
         run: head -n8 public/actions-download-file
