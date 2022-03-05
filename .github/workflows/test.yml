@@ -1,17 +1,17 @@
-name: "Testing"
-
 on:
   push:
     branches:
-      - master
+      - testing
 
+name: "Testing"
 jobs:
   test_the_action:
     name: Test the action
     runs-on: ubuntu-18.04
+    if: ${{ !contains(github.event.head_commit.message, 'build') }}
     steps:
-      - uses: actions/checkout@v2          
-      - uses: suisei-cn/actions-download-file@master
+      - uses: actions/checkout@v2
+      - uses: angelk90/actions-download-file@master
         id: downloadfile
         name: Download a file
         with:
@@ -20,4 +20,4 @@ jobs:
           auto-match: true
 
       - name: Display the file
-        run: head -n8 public/actions-download-file          
+        run: head -n8 public/actions-download-file
