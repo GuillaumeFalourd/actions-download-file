@@ -5663,9 +5663,9 @@ async function main() {
             return;
         }
 
-        urls.map((url, key) => console.log(`${key}) URL found: ${url}`))
+        urls.map((url, key) => console.log(`${key}) URL found: ${url}`));
         try {
-            fs.mkdirSync(target, { recursive: true })
+            fs.mkdirSync(target, { recursive: true });
         } catch (e) {
             core.setFailed(`Failed to create target directory ${target}: ${e}`);
             return;
@@ -5673,7 +5673,7 @@ async function main() {
 
         Promise.all(urls.map((url, key) => download(url, filename[key], target)))
             .then((file) => {
-                console.log('Saved files:', file)
+                console.log('Saved files:', file);
             })
             .catch((err) => {
                 core.setFailed(err.message);
