@@ -31,7 +31,7 @@ jobs:
           git status
           git add .
           git status
-          git commit -m "[Build]" -a
+          git commit -m "[Build]" -a --allow-empty
 
       - name: Push
         uses: ad-m/github-push-action@master

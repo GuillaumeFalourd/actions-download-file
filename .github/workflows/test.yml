@@ -1,24 +1,18 @@
+name: Testing
+
 on:
   push:
     branches:
       - testing
 
-name: Testing
 jobs:
-  check_context:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Console
-        run: echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-
   test_the_action:
     if: contains(github.event.head_commit.message, '[Build]')
     name: Test the action
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+
       - uses: angelk90/actions-download-file@master
         id: downloadfile
         name: Download a file
