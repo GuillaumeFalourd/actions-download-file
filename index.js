@@ -42,12 +42,12 @@ async function download(url, filename, target) {
             return undefined;
         });
     if (body === undefined) return;
-    let finalFilename = (filename) ? String(filename) : getFilenameFromUrl(url);
+    let finalFilename = (filename) ? String(filename) : getFilenameFromUrl(url)
     if (finalFilename === "") {
         core.setFailed("Filename not found. Please indicate it in the URL or set `filename` in the workflow.");
         return;
     }
-    fs.writeFileSync(path.join(target, finalFilename), body);
+    fs.writeFileSync(path.join(target, finalFilename), body)
     core.setOutput("filename", finalFilename);
     return finalFilename;
 }
