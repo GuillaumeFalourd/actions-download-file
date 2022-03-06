@@ -24,9 +24,10 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
-      - name: INIT WORKFLOW - Dispatch init event to other repository workflow
-        run: |
-          curl -X POST https://api.github.com/repos/GuillaumeFalourd/actions-download-file/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.GITHUB_TOKEN }} \
-          --data '{"event_type": "Start Download", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v1.1.3
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+          repository: GuillaumeFalourd/useful-actions
+          event-type: to-download
+          client-payload: '{"ref": "${{ github.ref }}", "sha": "${{ github.sha }}"}'
