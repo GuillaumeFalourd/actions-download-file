@@ -6,7 +6,7 @@ on:
 name: Testing
 jobs:
   test_the_action:
-    if: contains(github.event.head_commit.message, 'build')
+    if: contains(github.event.head_commit.message, '[build]')
     name: Test the action
     runs-on: ubuntu-18.04
     steps:
