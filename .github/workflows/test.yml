@@ -1,13 +1,11 @@
 name: Testing
 
 on:
-  push:
-    branches:
-      - testing
+  repository_dispatch:
 
 jobs:
   test_the_action:
-    if: contains(github.event.head_commit.message, '[Build]')
+    if: github.event.action == 'Start Download'
     name: Test the action
     runs-on: ubuntu-18.04
     steps:

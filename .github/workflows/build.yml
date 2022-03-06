@@ -24,12 +24,9 @@ jobs:
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
 
-      - name: Commit and Push
+      - name: INIT WORKFLOW - Dispatch init event to other repository workflow
         run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git status
-          git add .
-          git status
-          git commit -m "[Build]" -a --allow-empty
-          git push origin ${{ github.ref }}
+          curl -X POST https://api.github.com/repos/GuillaumeFalourd/actions-download-file/dispatches \
+          -H 'Accept: application/vnd.github.everest-preview+json' \
+          -u ${{ secrets.GITHUB_TOKEN }} \
+          --data '{"event_type": "Start Download", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
