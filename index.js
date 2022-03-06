@@ -28,10 +28,10 @@ const getLinks = (data) => {
 }
 
 function parseName(urls) {
-    let filename = []
+    let filename = [];
     if (!urls.includes("[")) filename = [urls].flat();
-    else filename = JSON.parse(urls)
-    return filename.filter((url) => url)
+    else filename = JSON.parse(urls);
+    return filename.filter((url) => url);
 }
 
 async function download(url, filename, target) {
@@ -42,14 +42,14 @@ async function download(url, filename, target) {
             return undefined;
         });
     if (body === undefined) return;
-    let finalFilename = (filename) ? String(filename) : getFilenameFromUrl(url);
+    let finalFilename = (filename) ? String(filename) : getFilenameFromUrl(url)
     if (finalFilename === "") {
         core.setFailed("Filename not found. Please indicate it in the URL or set `filename` in the workflow.");
         return;
     }
-    fs.writeFileSync(path.join(target, finalFilename), body);
+    fs.writeFileSync(path.join(target, finalFilename), body)
     core.setOutput("filename", finalFilename);
-    return finalFilename
+    return finalFilename;
 }
 
 async function main() {
@@ -70,11 +70,9 @@ async function main() {
             return;
         }
 
-        urls.map((url, key) => console.log(`${key}) URLs found: ${url}`))
+        urls.map((url, key) => console.log(`${key}) URL found: ${url}`));
         try {
-            fs.mkdirSync(target, {
-                recursive: true,
-            });
+            fs.mkdirSync(target, { recursive: true });
         } catch (e) {
             core.setFailed(`Failed to create target directory ${target}: ${e}`);
             return;
@@ -82,12 +80,12 @@ async function main() {
 
         Promise.all(urls.map((url, key) => download(url, filename[key], target)))
             .then((file) => {
-                console.log('Saved files:', file)
+                console.log('Saved files:', file);
             })
             .catch((err) => {
-                core.setFailed(err.message)
-            })
-        console.log("Download completed.");
+                core.setFailed(err.message);
+            });
+        console.log("Download completed.")
     } catch (error) {
         core.setFailed(error.message);
     }

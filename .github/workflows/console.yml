@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - testing
+
+name: Console
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Check out current commit
+
+      - name: Status
+        run: git status
+
+      - name: Console
+        run: echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
